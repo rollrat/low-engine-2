@@ -10,9 +10,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "Camera.h"
+#include <Camera/Camera.h>
+
+#include <Render/Display.h>
 
 extern GLFWwindow* window;
+extern lowengine::DisplayInfo* display_info;
 
 glm::vec3 position = glm::vec3(0, 0, 5);
 GLfloat horizontalAngle = 0.0f;
@@ -71,10 +74,10 @@ void lowengine::Camera::Update()
 	double xpos, ypos;
 	glfwGetCursorPos(window, &xpos, &ypos);
 
-	glfwSetCursorPos(window, 1024/2, 768/2);
+	glfwSetCursorPos(window, display_info->width/2, display_info->height/2);
 
-	horizontalAngle += mouseSpeed * float(1024/2 - xpos );
-	verticalAngle   += mouseSpeed * float( 768/2 - ypos );
+	horizontalAngle += mouseSpeed * float(display_info->width/2 - xpos );
+	verticalAngle   += mouseSpeed * float(display_info->height/2 - ypos );
 
 	glm::vec3 direction(
 		cos(verticalAngle) * sin(horizontalAngle), 
@@ -105,7 +108,7 @@ void lowengine::Camera::Update()
 
 	float FoV = initialFoV;
 
-	ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
+	ProjectionMatrix = glm::perspective(FoV, display_info->width / (float)display_info->height, 0.1f, 100.0f);
 	ViewMatrix       = glm::lookAt(
 								position,
 								position+direction,

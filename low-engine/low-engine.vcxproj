@@ -123,12 +123,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Camera\Camera.cpp" />
+    <ClCompile Include="core\Render\Display.cpp" />
     <ClCompile Include="core\Texture\Texture.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Camera\Camera.h" />
     <ClInclude Include="core\Common.h" />
+    <ClInclude Include="core\Render\Display.h" />
     <ClInclude Include="core\Texture\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
