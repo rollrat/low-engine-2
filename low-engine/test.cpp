@@ -15,6 +15,8 @@
 #include <gl/glew.h>
 #include <glfw/glfw3.h>
 
+GLFWwindow* window;
+
 int main() {
 
   if (!glfwInit())
@@ -29,7 +31,6 @@ int main() {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); 
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  GLFWwindow* window;
   window = glfwCreateWindow(1024, 768, "glfw Test", NULL, NULL);
 
   glfwMakeContextCurrent(window);
