@@ -14,9 +14,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <vector>
-#include <stdexcept>
 
 std::string lowengine::ShaderLoader::ReadShader(const char * filename)
 {
