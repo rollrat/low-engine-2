@@ -11,6 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 #include <Render/Display.h>
+#include <Render/Render.h>
 
 extern GLFWwindow* window;
 
@@ -23,14 +24,24 @@ int main() {
   if (display.IsInitialized() == false)
     return 1;
 
-  do {
+  /////////////////////////////////////////////////////////////////////////
 
-    glfwSwapBuffers(window);
-    glfwPollEvents();
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-  }
-  while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-    glfwWindowShouldClose(window) == 0);
+  glfwPollEvents();
+  glfwSetCursorPos(window, 1024 / 2, 768 / 2);
+
+  glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS);
+
+  glEnable(GL_CULL_FACE);
+
+  /////////////////////////////////////////////////////////////////////////
+
+  lowengine::Render render;
+  render.MainLoop();
 
   display.Terminate();
 

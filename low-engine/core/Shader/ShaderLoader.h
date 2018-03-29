@@ -4,14 +4,14 @@
 //
 //===----------------------------------------------------------------------===//
 //
-//  Display.h - 03/28/2018
+//  ShaderLoader.h - 03/28/2018
 //
 //  Copyright (C) 2018. rollrat. All Rights Reserved.
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef _LOWENGINE_DISPLAY_
-#define _LOWENGINE_DISPLAY_
+#ifndef _LOWENGINE_SHADERLOADER_
+#define _LOWENGINE_SHADERLOADER_
 
 #include <Common.h>
 
@@ -20,28 +20,17 @@
 namespace lowengine
 {
 
-class DisplayInfo
+class ShaderLoader
 {
-public:
-  GLsizei width;
-  GLsizei height;
-  std::string title;
+  std::string ReadShader(char *filename); 
+  GLuint CreateShader(GLenum shaderType, std::string source, const char* shaderName);
 
-  DisplayInfo(GLsizei width, GLsizei height, std::string&& title)
-    : width(width), height(height), title(title) { }
-};
-
-class Display
-{
-  bool init = false;
 public:
 
-  void Initialize(DisplayInfo&& info);
-  void Terminate();
-
-  bool IsInitialized() const { return init; }
+  GLuint CreateProgram(char* VertexShaderFilename, char* FragmentShaderFilename);
 };
 
 }
+
 
 #endif
