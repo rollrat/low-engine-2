@@ -4,14 +4,14 @@
 //
 //===----------------------------------------------------------------------===//
 //
-//  ShaderLoader.h - 03/28/2018
+//  ShaderProgram.h - 03/29/2018
 //
 //  Copyright (C) 2018. rollrat. All Rights Reserved.
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef _LOWENGINE_SHADERLOADER_
-#define _LOWENGINE_SHADERLOADER_
+#ifndef _LOWENGINE_SHADERPROGRAM_
+#define _LOWENGINE_SHADERPROGRAM_
 
 #include <Common.h>
 
@@ -20,14 +20,17 @@
 namespace lowengine
 {
 
-class ShaderLoader
+class ShaderProgram
 {
-  static std::string ReadShader(const char *filename);
-  static GLuint CreateShader(GLenum shaderType, std::string source, const char* shaderName);
-
+  GLuint id;
 public:
 
-  static GLuint CreateProgram(const char* VertexShaderFilename, const char* FragmentShaderFilename);
+  ShaderProgram(std::string&& VertexShaderFilename, std::string&& FragmentShaderFilename);
+  ~ShaderProgram();
+
+  void Bind();
+  void UnBind();
+
 };
 
 }

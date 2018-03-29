@@ -126,6 +126,7 @@
     <ClCompile Include="core\Render\Display.cpp" />
     <ClCompile Include="core\Render\Render.cpp" />
     <ClCompile Include="core\Shader\ShaderLoader.cpp" />
+    <ClCompile Include="core\Shader\ShaderProgram.cpp" />
     <ClCompile Include="core\Texture\Texture.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="core\Render\Display.h" />
     <ClInclude Include="core\Render\Render.h" />
     <ClInclude Include="core\Shader\ShaderLoader.h" />
+    <ClInclude Include="core\Shader\ShaderProgram.h" />
     <ClInclude Include="core\Texture\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

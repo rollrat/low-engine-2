@@ -33,6 +33,9 @@
     <ClCompile Include="core\Shader\ShaderLoader.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="core\Shader\ShaderProgram.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Common.h">
@@ -51,6 +54,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="core\Shader\ShaderLoader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Shader\ShaderProgram.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

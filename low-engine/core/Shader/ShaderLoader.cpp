@@ -18,7 +18,7 @@
 #include <vector>
 #include <stdexcept>
 
-std::string lowengine::ShaderLoader::ReadShader(char * filename)
+std::string lowengine::ShaderLoader::ReadShader(const char * filename)
 {
   std::string shaderCode;
   std::ifstream file(filename, std::ios::in);
@@ -66,7 +66,7 @@ GLuint lowengine::ShaderLoader::CreateShader(GLenum shaderType, std::string sour
   return shader;
 }
 
-GLuint lowengine::ShaderLoader::CreateProgram(char * VertexShaderFilename, char * FragmentShaderFilename)
+GLuint lowengine::ShaderLoader::CreateProgram(const char * VertexShaderFilename, const char * FragmentShaderFilename)
 {
   std::string vertex_shader_code = ReadShader(VertexShaderFilename);
   std::string fragment_shader_code = ReadShader(FragmentShaderFilename);
