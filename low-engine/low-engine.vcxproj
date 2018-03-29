@@ -123,6 +123,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Camera\Camera.cpp" />
+    <ClCompile Include="core\Object\Object.cpp" />
     <ClCompile Include="core\Render\Display.cpp" />
     <ClCompile Include="core\Render\Render.cpp" />
     <ClCompile Include="core\Shader\ShaderLoader.cpp" />
@@ -133,6 +134,8 @@
   <ItemGroup>
     <ClInclude Include="core\Camera\Camera.h" />
     <ClInclude Include="core\Common.h" />
+    <ClInclude Include="core\Object\Object.h" />
+    <ClInclude Include="core\Object\ObjectLoader.h" />
     <ClInclude Include="core\Render\Display.h" />
     <ClInclude Include="core\Render\Render.h" />
     <ClInclude Include="core\Shader\ShaderLoader.h" />
