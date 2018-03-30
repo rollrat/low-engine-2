@@ -45,6 +45,9 @@
     <ClCompile Include="core\Object\TestObject\ShaderSolidCube.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="core\Object\SimpleObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Common.h">
@@ -93,6 +96,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="core\Light\Light.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Object\SimpleObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

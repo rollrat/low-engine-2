@@ -15,7 +15,7 @@
 #include <vector>
 #include <stdio.h>
 
-lowengine::Object lowengine::ObjectLoader::CreateProject(std::string&& path)
+lowengine::SimpleObject lowengine::ObjectLoader::CreateObject(std::string&& path)
 {
   printf("Loading OBJ file %s...\n", path.c_str());
 
@@ -33,7 +33,7 @@ lowengine::Object lowengine::ObjectLoader::CreateProject(std::string&& path)
   if (file == NULL) {
     printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
     getchar();
-    return Object();
+    return SimpleObject();
   }
 
   while (1) {
@@ -68,7 +68,7 @@ lowengine::Object lowengine::ObjectLoader::CreateProject(std::string&& path)
       int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2]);
       if (matches != 9) {
         printf("File can't be read by our simple parser :-( Try exporting with other options\n");
-        return Object();
+        return SimpleObject();
       }
       vertexIndices.push_back(vertexIndex[0]);
       vertexIndices.push_back(vertexIndex[1]);
@@ -123,5 +123,5 @@ lowengine::Object lowengine::ObjectLoader::CreateProject(std::string&& path)
   glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
   glBufferData(GL_ARRAY_BUFFER, out_normals.size() * sizeof(glm::vec3), &out_normals[0], GL_STATIC_DRAW);
 
-  return Object(vertexbuffer, uvbuffer, normalbuffer);
+  return SimpleObject(vertexbuffer, uvbuffer, normalbuffer);
 }

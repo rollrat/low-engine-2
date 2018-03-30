@@ -13,7 +13,7 @@
 #ifndef _LOWENGINE_OBJECTLOADER_
 #define _LOWENGINE_OBJECTLOADER_
 
-#include <Object/Object.h>
+#include <Object/SimpleObject.h>
 
 namespace lowengine
 {
@@ -22,7 +22,7 @@ class ObjectLoader
 {
 public:
 
-  static Object CreateProject(std::string&& path);
+  static SimpleObject CreateObject(std::string&& path);
 
 };
 

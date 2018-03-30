@@ -19,13 +19,15 @@
 #include <Shader/ShaderLoader.h>
 
 #include <map>
+#include <memory>
 
 namespace lowengine
 {
 
 class ShaderManager
 {
-  std::map<std::string, ShaderProgram *> shader_programs;
+  std::map<std::string, 
+    std::unique_ptr<ShaderProgram>> shader_programs;
 
 public:
 
