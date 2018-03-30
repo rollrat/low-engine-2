@@ -118,5 +118,10 @@ lowengine::Object lowengine::ObjectLoader::CreateProject(std::string&& path)
   glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
   glBufferData(GL_ARRAY_BUFFER, out_uvs.size() * sizeof(glm::vec2), &out_uvs[0], GL_STATIC_DRAW);
 
-  return Object(vertexbuffer, uvbuffer);
+  GLuint normalbuffer;
+  glGenBuffers(1, &normalbuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+  glBufferData(GL_ARRAY_BUFFER, out_normals.size() * sizeof(glm::vec3), &out_normals[0], GL_STATIC_DRAW);
+
+  return Object(vertexbuffer, uvbuffer, normalbuffer);
 }

@@ -27,6 +27,9 @@ public:
 
   bool LoadTexture(std::string path);
   GLuint GetId() const { return id; }
+
+  void Bind();
+  void UnBund();
   
 };
 

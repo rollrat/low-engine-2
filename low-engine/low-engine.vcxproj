@@ -138,6 +138,7 @@
     <ClInclude Include="core\Camera\Camera.h" />
     <ClInclude Include="core\Common.h" />
     <ClInclude Include="core\Input\Keyboard.h" />
+    <ClInclude Include="core\Light\Light.h" />
     <ClInclude Include="core\Memory\Pool.h" />
     <ClInclude Include="core\Memory\Thread.h" />
     <ClInclude Include="core\Object\Object.h" />

@@ -39,6 +39,8 @@ public:
   void SetVerticalAngle(GLfloat angle);
 
   void Update();
+  glm::mat4 GetP();
+  glm::mat4 GetV();
   glm::mat4 GetPV();
 };
 

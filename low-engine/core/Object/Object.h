@@ -30,6 +30,7 @@ protected:
 
   GLuint vertex_buffer;
   GLuint uv_buffer;
+  GLuint normal_buffer;
 
   glm::vec3 position;
   glm::vec3 rotation;
@@ -37,12 +38,12 @@ protected:
 public:
 
   Object() { }
-  Object(GLuint vertex_buffer, GLuint uv_buffer)
-    : vertex_buffer(vertex_buffer), uv_buffer(uv_buffer) { }
+  Object(GLuint vertex_buffer, GLuint uv_buffer, GLuint normal_buffer)
+    : vertex_buffer(vertex_buffer), uv_buffer(uv_buffer), normal_buffer(normal_buffer) { }
 
   glm::mat4 GetM();
 
-  virtual void Draw();
+  virtual void Draw() = 0;
 
   glm::vec3& Position() { return position; }
   glm::vec3& Rotation() { return rotation; }

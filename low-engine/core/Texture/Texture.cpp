@@ -41,3 +41,13 @@ bool lowengine::Texture::LoadTexture(std::string path)
 
   return true;
 }
+
+void lowengine::Texture::Bind()
+{
+  glBindTexture(GL_TEXTURE_2D, id);
+}
+
+void lowengine::Texture::UnBund()
+{
+  glBindTexture(GL_TEXTURE_2D, 0);
+}

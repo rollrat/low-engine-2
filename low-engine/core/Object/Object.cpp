@@ -24,7 +24,3 @@ glm::mat4 lowengine::Object::GetM()
 
   return matrix;
 }
-
-void lowengine::Object::Draw()
-{
-}

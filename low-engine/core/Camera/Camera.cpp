@@ -28,7 +28,7 @@ glm::mat4 ProjectionMatrix;
 
 float initialFoV = 45.0f;
 float speed = 3.0f; // 3 units / second
-float mouseSpeed = 0.0025f;
+float mouseSpeed = 0.001f;
 
 lowengine::Camera::Camera()
 {
@@ -66,8 +66,23 @@ void lowengine::Camera::SetVerticalAngle(GLfloat angle)
   verticalAngle = angle;
 }
 
+double lastTime=0.0;
+int framecount = 0;
+static void console_frame()
+{
+  double cur = glfwGetTime();
+  framecount++;
+  if (cur - lastTime >= 1.0)
+  {
+    std::cout << framecount / (cur - lastTime) << std::endl;
+    lastTime = glfwGetTime();
+    framecount = 0;
+  }
+}
+
 void lowengine::Camera::Update()
 {
+  console_frame();
 	static double lastTime = glfwGetTime();
 
 	double currentTime = glfwGetTime();
@@ -88,23 +103,23 @@ void lowengine::Camera::Update()
 	);
 	
 	glm::vec3 right = glm::vec3(
-		sin(horizontalAngle - 3.14f/2.0f), 
+		sin(horizontalAngle - 3.14159265f/2.0f), 
 		0,
-		cos(horizontalAngle - 3.14f/2.0f)
+		cos(horizontalAngle - 3.14159265f/2.0f)
 	);
 	
 	glm::vec3 up = glm::cross( right, direction );
 
-	if (glfwGetKey( window, GLFW_KEY_UP ) == GLFW_PRESS){
+	if (glfwGetKey( window, GLFW_KEY_W ) == GLFW_PRESS){
 		position += direction * deltaTime * speed;
 	}
-	if (glfwGetKey( window, GLFW_KEY_DOWN ) == GLFW_PRESS){
+	if (glfwGetKey( window, GLFW_KEY_S ) == GLFW_PRESS){
 		position -= direction * deltaTime * speed;
 	}
-	if (glfwGetKey( window, GLFW_KEY_RIGHT ) == GLFW_PRESS){
+	if (glfwGetKey( window, GLFW_KEY_D ) == GLFW_PRESS){
 		position += right * deltaTime * speed;
 	}
-	if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
+	if (glfwGetKey( window, GLFW_KEY_A ) == GLFW_PRESS){
 		position -= right * deltaTime * speed;
 	}
 
@@ -118,6 +133,16 @@ void lowengine::Camera::Update()
 						   );
 
 	lastTime = currentTime;
+}
+
+glm::mat4 lowengine::Camera::GetP()
+{
+  return ProjectionMatrix;
+}
+
+glm::mat4 lowengine::Camera::GetV()
+{
+  return ViewMatrix;
 }
 
 glm::mat4 lowengine::Camera::GetPV()
