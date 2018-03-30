@@ -153,5 +153,5 @@ void lowengine::ShaderSolidCube::Draw()
   glDisableVertexAttribArray(0);
   glDisableVertexAttribArray(1);
 
-  //program.UnBind();
+  program.UnBind();
 }

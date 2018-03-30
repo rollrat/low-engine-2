@@ -137,6 +137,9 @@
   <ItemGroup>
     <ClInclude Include="core\Camera\Camera.h" />
     <ClInclude Include="core\Common.h" />
+    <ClInclude Include="core\Input\Keyboard.h" />
+    <ClInclude Include="core\Memory\Pool.h" />
+    <ClInclude Include="core\Memory\Thread.h" />
     <ClInclude Include="core\Object\Object.h" />
     <ClInclude Include="core\Object\ObjectLoader.h" />
     <ClInclude Include="core\Object\ObjectManager.h" />
@@ -144,6 +147,7 @@
     <ClInclude Include="core\Render\Display.h" />
     <ClInclude Include="core\Render\Render.h" />
     <ClInclude Include="core\Shader\ShaderLoader.h" />
+    <ClInclude Include="core\Shader\ShaderManager.h" />
     <ClInclude Include="core\Shader\ShaderProgram.h" />
     <ClInclude Include="core\Texture\Texture.h" />
   </ItemGroup>
