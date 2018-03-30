@@ -13,6 +13,8 @@
 #include <Render/Display.h>
 #include <Render/Render.h>
 
+#include <Object/TestObject/ShaderSolidCube.h>
+
 extern GLFWwindow* window;
 
 int main() {
@@ -41,6 +43,9 @@ int main() {
   /////////////////////////////////////////////////////////////////////////
 
   lowengine::Render render;
+  lowengine::ShaderProgram shader1("TransformVertexShader.vertexshader", "ColorFragmentShader.fragmentshader");
+  render.AddObject(new lowengine::ShaderSolidCube( shader1 ));
+
   render.MainLoop();
 
   display.Terminate();

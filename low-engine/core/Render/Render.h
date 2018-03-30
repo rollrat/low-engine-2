@@ -15,16 +15,22 @@
 
 #include <Common.h>
 
-#include <Camera\Camera.h>
+#include <Camera/Camera.h>
+#include <Object/Object.h>
+#include <vector>
 
 namespace lowengine
 {
 
 class Render
 {
+  std::vector<Object *> objects;
+
 public:
 
   void MainLoop();
+
+  void AddObject(Object* obj) { objects.push_back(obj); }
 
 };
 

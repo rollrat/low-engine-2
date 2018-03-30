@@ -26,6 +26,8 @@ namespace lowengine
 
 class Object
 {
+protected:
+
   GLuint vertex_buffer;
   GLuint uv_buffer;
 
@@ -34,11 +36,16 @@ class Object
 
 public:
 
+  Object() { }
+  Object(GLuint vertex_buffer, GLuint uv_buffer)
+    : vertex_buffer(vertex_buffer), uv_buffer(uv_buffer) { }
+
   glm::mat4 GetM();
 
-  // 순수 가상함수 아님
   virtual void Draw();
 
+  glm::vec3& Position() { return position; }
+  glm::vec3& Rotation() { return rotation; }
 };
 
 

@@ -4,38 +4,37 @@
 //
 //===----------------------------------------------------------------------===//
 //
-//  ShaderProgram.h - 03/29/2018
+//  ShaderSolidCube.h - 03/30/2018
 //
 //  Copyright (C) 2018. rollrat. All Rights Reserved.
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef _LOWENGINE_SHADERPROGRAM_
-#define _LOWENGINE_SHADERPROGRAM_
+#ifndef _LOWENGINE_SHADERSOLIDCUBE_
+#define _LOWENGINE_SHADERSOLIDCUBE_
 
 #include <Common.h>
 
-#include <string>
+#include <Object/Object.h>
+#include <Shader/ShaderProgram.h>
 
 namespace lowengine
 {
 
-class ShaderProgram
+class ShaderSolidCube : public Object
 {
-  GLuint id;
+  ShaderProgram& program;
+  GLuint matrix_id;
+
 public:
 
-  ShaderProgram(std::string&& VertexShaderFilename, std::string&& FragmentShaderFilename);
-  ShaderProgram(GLuint id) : id(id) { }
-  ~ShaderProgram();
+  ShaderSolidCube(ShaderProgram& program);
 
-  void Bind();
-  void UnBind();
+  virtual void Draw();
 
-  GLuint GetId() const { return id; }
 };
 
-}
 
+}
 
 #endif

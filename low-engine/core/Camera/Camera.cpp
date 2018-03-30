@@ -14,6 +14,8 @@
 
 #include <Render/Display.h>
 
+#include <iostream>
+
 extern GLFWwindow* window;
 extern lowengine::DisplayInfo* display_info;
 
@@ -26,7 +28,7 @@ glm::mat4 ProjectionMatrix;
 
 float initialFoV = 45.0f;
 float speed = 3.0f; // 3 units / second
-float mouseSpeed = 0.005f;
+float mouseSpeed = 0.0025f;
 
 lowengine::Camera::Camera()
 {
