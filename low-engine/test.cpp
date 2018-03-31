@@ -14,6 +14,7 @@
 #include <Render/Render.h>
 
 #include <Object/TestObject/ShaderSolidCube.h>
+#include <Object/TestObject/TexturePlane.h>
 
 extern GLFWwindow* window;
 
@@ -33,10 +34,10 @@ int main() {
   glfwPollEvents();
   glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 
-  glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+  //glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
   glEnable(GL_DEPTH_TEST);
-  glDepthFunc(GL_LESS);
+  //glDepthFunc(GL_LESS);
 
   glEnable(GL_CULL_FACE);
 
@@ -46,8 +47,15 @@ int main() {
   lowengine::ShaderProgram shader1("TransformVertexShader.vertexshader", "ColorFragmentShader.fragmentshader");
   render.AddObject(new lowengine::ShaderSolidCube( shader1 ));
 
-  render.MainLoop();
+  std::unique_ptr<lowengine::ShaderProgram> shader2 = std::make_unique<lowengine::ShaderProgram>("TransformVertexShader2.vertexshader", "TextureFragmentShader.fragmentshader");
+  std::unique_ptr<lowengine::Texture> texture = std::make_unique<lowengine::Texture>();
+  texture->LoadTexture("tile-texture.jpg");
+  lowengine::TexturePlane *tex_plane = new lowengine::TexturePlane(100.0, 100.0);
+  tex_plane->RegisterShader(shader2);
+  tex_plane->RegisterTexture(texture);
+  render.AddObject(tex_plane);
 
+  render.MainLoop();
   display.Terminate();
 
   return 0;

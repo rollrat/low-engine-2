@@ -133,6 +133,8 @@ void lowengine::Camera::Update()
 						   );
 
 	lastTime = currentTime;
+
+  glViewport(0, 0, display_info->width, display_info->height);
 }
 
 glm::mat4 lowengine::Camera::GetP()

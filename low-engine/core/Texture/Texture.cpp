@@ -47,7 +47,7 @@ void lowengine::Texture::Bind()
   glBindTexture(GL_TEXTURE_2D, id);
 }
 
-void lowengine::Texture::UnBund()
+void lowengine::Texture::UnBind()
 {
   glBindTexture(GL_TEXTURE_2D, 0);
 }

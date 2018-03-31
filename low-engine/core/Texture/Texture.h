@@ -29,7 +29,7 @@ public:
   GLuint GetId() const { return id; }
 
   void Bind();
-  void UnBund();
+  void UnBind();
   
 };
 

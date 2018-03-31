@@ -128,6 +128,7 @@
     <ClCompile Include="core\Object\ObjectLoader.cpp" />
     <ClCompile Include="core\Object\SimpleObject.cpp" />
     <ClCompile Include="core\Object\TestObject\ShaderSolidCube.cpp" />
+    <ClCompile Include="core\Object\TestObject\TexturePlane.cpp" />
     <ClCompile Include="core\Render\Display.cpp" />
     <ClCompile Include="core\Render\Render.cpp" />
     <ClCompile Include="core\Shader\ShaderLoader.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="core\Object\ObjectManager.h" />
     <ClInclude Include="core\Object\SimpleObject.h" />
     <ClInclude Include="core\Object\TestObject\ShaderSolidCube.h" />
+    <ClInclude Include="core\Object\TestObject\TexturePlane.h" />
     <ClInclude Include="core\Render\Display.h" />
     <ClInclude Include="core\Render\Render.h" />
     <ClInclude Include="core\Shader\ShaderLoader.h" />
